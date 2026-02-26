@@ -94,12 +94,7 @@ int main() {
 		else if (strncmp(command, "QUIT", 4) == 0) {
 			if (isClient(senderAddr) == 1) {
 				char quit[] = "QUIT";
-				//char tempNick[30] = { 0 };
-				//getNick_fromUser(senderAddr, tempNick);
-				//char msg[BUFFER_SIZE];
-				//sprintf(msg, "[%s]: left the chat\n", tempNick);
 				delClient(senderAddr);
-				//sendMsg(msg, recvSock);
 				sendto(recvSock, quit, strlen(quit), 0, (struct sockaddr*)&senderAddr, sizeof(senderAddr));
 			}
 		}
@@ -224,4 +219,5 @@ void getNick_fromUser(struct sockaddr_in curClient,char* res) {
 			return;
 		}
 	}
+
 }
